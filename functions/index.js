@@ -1,6 +1,6 @@
 const Hapi = require("@hapi/hapi")
 const CarbonKit = require("./carbonkit")
-const logger = require("debug")("hapi:index")
+const debug = require("debug")("fot:backend:index")
 
 const init = async () => {
   const server = Hapi.server({
@@ -14,13 +14,12 @@ const init = async () => {
     method: "GET",
     path: "/{param*}",
     handler: async (request, h) => {
-      logger(request.query)
+      debug(request.query)
       let resp = await CarbonKit.getFlightCalc(
         request.query.from,
         request.query.to
       )
       return resp.data.output
-      // return "WORD"
     }
   })
 

@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 Vue.use(Vuex)
 import CarbonkitService from "@/services/CarbonkitService.js"
+const debug = require("debug")("fot:frontend:store")
 
 export default new Vuex.Store({
   state: {
@@ -28,7 +29,7 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_TRIP(state, trip) {
-      console.log(trip)
+      debug(trip)
       state.trips.push(trip)
     },
     DELETE_TRIP(state, tripToRemove) {
@@ -39,13 +40,11 @@ export default new Vuex.Store({
   },
   actions: {
     addTrip({ commit, dispatch }, trip) {
-      console.log("ADD TRIP YO")
+      debug("ADD TRIP YO")
       // fetch stuff, init
       CarbonkitService.getFlightCalc(trip.from, trip.to)
         .then(response => {
           // populate the trip with distance and CO2
-          // debugger
-          // trip.
           const co2e = response.data.amounts.filter(amt => {
             return amt.type == "distance"
           })[0]
@@ -59,7 +58,7 @@ export default new Vuex.Store({
         })
         // rescue for when it breaks
         .catch(error => {
-          console.log(`eep. error at`, error)
+          debug(`eep. error at`, error)
         })
     }
   }

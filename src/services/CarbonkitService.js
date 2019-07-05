@@ -1,5 +1,5 @@
 import axios from "axios"
-const logger = require("debug")("vue:carbonkitService")
+const debug = require("debug")("fot:front:carbonkitService")
 
 const apiClient = axios.create({
   baseURL: "http://localhost:3000",
@@ -11,8 +11,8 @@ const apiClient = axios.create({
 
 export default {
   getFlightCalc(from, to) {
-    logger("GET FLIGHT CALC")
-    logger(from, to)
+    debug("GET FLIGHT CALC")
+    debug(from, to)
 
     return apiClient
       .get(`?from=${from}&to=${to}`)

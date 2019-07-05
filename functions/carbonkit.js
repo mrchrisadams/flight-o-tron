@@ -1,5 +1,5 @@
 const axios = require("axios")
-const logger = require("debug")("hapi:carbonkitService")
+const debug = require("debug")("fot:backend:carbonkitService")
 
 const apiClient = axios.create({
   baseURL: "https://api.carbonkit.net/3/",
@@ -16,8 +16,8 @@ const apiClient = axios.create({
 
 module.exports = {
   getFlightCalc(from, to) {
-    console.log("GET FLIGHT CALC")
-    console.log(from, to)
+    debug("GET FLIGHT CALC")
+    debug(from, to)
     let flightCalcPath =
       "/categories/Great_Circle_flight_methodology/calculation.json"
     return apiClient

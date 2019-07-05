@@ -1,5 +1,5 @@
 const CarbonKit = require("./carbonkit")
-const apiLogger = require("debug")("fot:apiLogger")
+const apiLogger = require("debug")("fot:apitest")
 
 let main = async () => {
   let resp = await CarbonKit.getFlightCalc("LAX", "LHR")
