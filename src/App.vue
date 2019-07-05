@@ -1,20 +1,15 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <div id="nav"></div>
+    <h1>Flight O Tron</h1>
+    <h2>Carbon calculators work for one flight, and look backwards. What if you could use them to plan forwards and try out different scenarios though?</h2>
+    <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
+
+<script>
+export default {};
+</script>
