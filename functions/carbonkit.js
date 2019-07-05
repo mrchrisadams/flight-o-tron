@@ -9,8 +9,8 @@ const apiClient = axios.create({
     "Content-Type": "application/json"
   },
   auth: {
-    username: "mrchrisadams",
-    password: "armor-tahiti-salivate-widely"
+    username: `${process.env.VUE_APP_CARBONKUT_USERNAME}`,
+    password: `${process.env.VUE_APP_CARBONKIT_PASSWORD}`,""
   }
 })
 

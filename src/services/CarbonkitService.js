@@ -2,7 +2,7 @@ import axios from "axios"
 const debug = require("debug")("fot:front:carbonkitService")
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: `${process.env.VUE_APP_SERVER_URL}`,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json"
