@@ -6,8 +6,7 @@ const init = async () => {
   const server = Hapi.server({
     debug: { request: ["*"], log: ["*"] },
     port: 3000,
-    host: "localhost",
-    routes: { cors: { origin: "ignore" } }
+    host: "localhost"
   })
 
   server.route({
@@ -20,6 +19,9 @@ const init = async () => {
         request.query.to
       )
       return resp.data.output
+    },
+    options: {
+      cors: { origin: ["*"] }
     }
   })
 
