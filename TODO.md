@@ -1,0 +1,4 @@
+- [x] Get the carbonkit service working when we add two cities /IATA codes
+- [ ] Add a delete button for removing flights
+- [ ] Work out how to persist flights somewhere (url? local storage? dexiejs?)
+- [ ] Add basic styling, once we know making reqs and getting numbers back in a browser can work ok
