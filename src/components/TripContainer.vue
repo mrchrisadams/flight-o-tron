@@ -1,6 +1,9 @@
 <template>
   <div class="trip listing">
-    <form @submit.prevent="createTrip" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form
+      @submit.prevent="createTrip"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full"
+    >
       <input
         class="bg-white focus:outline-0 focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
         v-model="newTrip.from"
@@ -13,8 +16,7 @@
         type="text"
         placeholder="Destination Airport"
       />
-      <!-- <input v-model="newTrip.distance" type="text" placeholder="Add an event title">
-      <input v-model="newTrip.co2e" type="text" placeholder="Add an event title">-->
+
       <input
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="submit"
@@ -22,9 +24,18 @@
       />
     </form>
 
-    <ul class="trip-list">
-      <TripCard v-for="trip in trips" :key="trip.id" :trip="trip" />
-    </ul>
+    <div class="flex flex-row-reverse">
+      <div
+        class="bg-white focus:outline-0 focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 mx-2 appearance-none leading-normalw-1/3"
+      >
+        <span class="text-6xl">{{ co2 }}</span>
+        tonnes of CO2e
+      </div>
+
+      <ul class="trip-list w-2/3">
+        <TripCard v-for="trip in trips" :key="trip.id" :trip="trip" />
+      </ul>
+    </div>
   </div>
 </template>
 
