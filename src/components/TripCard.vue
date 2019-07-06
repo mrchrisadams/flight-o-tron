@@ -12,9 +12,9 @@
       {{ trip.cost }}
       <span class="italic text-sm"
         v-if="showFFL"
-      >({{ trip.cost + addLevyToFlightCost(trip.cost, index) }} with the FFL )</span>
+      ><br>({{ trip.cost + addLevyToFlightCost(trip.cost, index) }} with the FFL )</span>
     </span>
-    <button @click="deleteTrip">x</button>
+    <button @click="deleteTrip"><span class="text-sm text-red-800">Delete trip</span></button>
   </li>
 </template>
 
