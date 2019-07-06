@@ -1,6 +1,11 @@
 const axios = require("axios")
 const debug = require("debug")("fot:backend:carbonkitService")
 
+if (!process.env.VUE_APP_CARBONKIT_USERNAME) {
+  console.error(`No value found for VUE_APP_CARBONKIT_USERNAME`)
+  process.exitCode = 1;
+}
+
 const apiClient = axios.create({
   baseURL: "https://api.carbonkit.net/3/",
   withCredentials: true,
@@ -9,8 +14,8 @@ const apiClient = axios.create({
     "Content-Type": "application/json"
   },
   auth: {
-    username: `${process.env.VUE_APP_CARBONKUT_USERNAME}`,
-    password: `${process.env.VUE_APP_CARBONKIT_PASSWORD}`,""
+    username: `${process.env.VUE_APP_CARBONKIT_USERNAME}`,
+    password: `${process.env.VUE_APP_CARBONKIT_PASSWORD}`,
   }
 })
 
