@@ -1,12 +1,15 @@
 <template>
-  <li class="trip">
-    <span class="from">{{ trip.from}}</span>
-    to
-    <span class="to">{{ trip.to}}</span>
+  <li
+    class="flex flex-row mx-4 my-4 py-2 px-4 mx-2 text-base bg-gray-200 focus:outline-0 focus:shadow-outline border border-gray-300 rounded-lg appearance-none leading-normal"
+  >
+    <span class="flex-1 block from">{{ trip.from}}</span>
+    <span class="flex-1 block from">to</span>
 
-    <span class="distance">distance: {{ trip.distance }}</span>
+    <span class="flex-1 block to">{{ trip.to}}</span>
 
-    <span class="co2">co2: {{ trip.co2e }}</span>
+    <span class="flex-1 block">{{ trip.distance }}km</span>
+
+    <span class="flex-1 block">{{ trip.co2e }}kg</span>
   </li>
 </template>
 
@@ -20,11 +23,4 @@ export default {
 </script>
 
 <style>
-li.trip {
-  border: 1px solid #333;
-}
-li.trip span {
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
 </style>
