@@ -30,6 +30,10 @@
       />
     </form>
 
+    <TripImporter />
+
+    
+
     <div class="flex flex-wrap">
       <div
         class="bg-white focus:outline-0 focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 mr-2 appearance-none leading-normal w-full md:w-1/4"
@@ -73,6 +77,7 @@
 
 <script>
 import TripCard from "@/components/TripCard.vue";
+import TripImporter from "@/components/TripImporter.vue";
 
 export default {
   data() {
@@ -81,7 +86,7 @@ export default {
     };
   },
   components: {
-    TripCard
+    TripCard, TripImporter
   },
   computed: {
     showFFL() {
@@ -128,12 +133,13 @@ export default {
     },
     toggleFFL() {
       this.$store.dispatch("toggleFFL");
+    },
+    exportTrips() {
+      this.$store.dispatch("exportTrips");
+      return this.$store.getters.serialisedTrips
     }
   }
 };
 </script>
-<style scoped>
-.trip-list {
-  max-width: 40rem;
-}
+<style>
 </style>
