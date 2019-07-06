@@ -1,10 +1,12 @@
 <template>
   <div id="app" class="container mx-auto px-4">
     <div id="nav"></div>
-    <h1 class="font-bold text-xl flex items-center justify-between flex-wrap p-6">Flight O Tron</h1>
-    <div class="mx-auto px-4">
-      <p>Carbon calculators work for one flight, and look backwards.</p>
-      <p>What if you could use them to plan forwards and try out different scenarios though?</p>
+    <h1 class="font-bold text-xl flex items-center justify-between flex-wrap p-6">Frequent Flyer Levy-O-Tron</h1>
+    <div class="px-4 max-w-xl">
+      <p class="mt-2">The frequent flyer levy from the folks behind <a href="http://afreeride.org/">a free a ride</a> is an interesting idea - it's designed to help reduce demand for flying in total, without penalising people who fly rarely.</p>
+
+      <p class="mt-2">To see the impact it would have had on your last year of travel, drop in the airport codes into this calculator, then hit the "show with the FFL" button.</p>
+
     </div>
 
     <router-view />
