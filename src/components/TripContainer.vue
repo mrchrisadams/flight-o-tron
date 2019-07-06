@@ -45,7 +45,8 @@ export default {
       return this.$store.state.trips;
     },
     co2() {
-      return this.$store.state.totalCo2;
+      let tonnes = this.$store.getters.totalCO2e / 1000;
+      return tonnes.toPrecision(2).toLocaleString();
     }
   },
   methods: {
