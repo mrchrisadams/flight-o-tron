@@ -1,6 +1,9 @@
+require('dotenv').config()
 const Hapi = require("@hapi/hapi")
 const CarbonKit = require("./carbonkit")
 const debug = require("debug")("fot:backend:index")
+
+
 
 const init = async () => {
   const server = Hapi.server({
