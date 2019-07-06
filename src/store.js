@@ -2,17 +2,14 @@ import Vue from "vue"
 import Vuex from "vuex"
 Vue.use(Vuex)
 import CarbonkitService from "@/services/CarbonkitService.js"
-import FrequentFlyerLevyService from "@/services/FrequentFlyerLevyService.js"
 
 const debug = require("debug")("fot:frontend:store")
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     showFFL: false,
     trips: [],
     trip: {},
-    totalCo2: 0,
-    totaldistance: 0
   },
   getters: {
     totalCO2e: state => {
@@ -26,6 +23,9 @@ export default new Vuex.Store({
     totalSpent: state => {
       let reducer = (accumulator, trip) => accumulator + trip.cost
       return state.trips.reduce(reducer, 0)
+    },
+    serialisedTrips: state => {
+      return JSON.stringify(state.trips)
     }
   },
   mutations: {
@@ -38,6 +38,9 @@ export default new Vuex.Store({
         trip.id !== tripToRemove.id
       })
       state.trips = newTripList
+    },
+    REPLACE_TRIPS(state, trips) {
+      state.trips = trips
     },
     TOGGLE_FFL(state) {
       state.showFFL = !state.showFFL
@@ -69,6 +72,23 @@ export default new Vuex.Store({
     },
     toggleFFL({ commit }) {
       commit("TOGGLE_FFL")
+    },
+    exportTrips({ state }) {
+      return store.getters.serialisedTrips
+    },
+    tryImportTrips({commit}, serialisedTrips) {
+      const trips = JSON.parse(serialisedTrips)
+
+      const weHaveTripsToImport = trips.length > 0
+      if (weHaveTripsToImport) {
+        commit('REPLACE_TRIPS', trips)
+        return {
+          success: true,
+          tripsImported: trips.length
+        }
+      }
+      
     }
   }
 })
+export default store;
