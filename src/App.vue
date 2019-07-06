@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container mx-auto px-4">
+  <div id="app" class="container mx-auto px-4 font-sans">
     <div id="nav"></div>
     <h1 class="font-bold text-xl flex items-center justify-between flex-wrap p-6">Frequent Flyer Levy-O-Tron</h1>
     <div class="px-4 max-w-xl">
