@@ -34,9 +34,11 @@ const store = new Vuex.Store({
       state.trips.push(trip)
     },
     DELETE_TRIP(state, tripToRemove) {
+      debug("removing", tripToRemove)
       const newTripList = state.trips.filter(trip => {
-        trip.id !== tripToRemove.id
+        return trip.id !== tripToRemove.id
       })
+      debug("removing", newTripList)
       state.trips = newTripList
     },
     REPLACE_TRIPS(state, trips) {
