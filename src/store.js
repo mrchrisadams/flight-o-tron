@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 Vue.use(Vuex)
 import CarbonkitService from "@/services/CarbonkitService.js"
+import FrequentFlyerLevyService from "@/services/FrequentFlyerLevyService.js"
 
 const debug = require("debug")("fot:frontend:store")
 
@@ -26,6 +27,14 @@ const store = new Vuex.Store({
     },
     serialisedTrips: state => {
       return JSON.stringify(state.trips)
+    },
+    totalFFLLevy: state => {
+      let reducer = (accumulator, trip) => {
+        const index = state.trips.indexOf(trip)
+        const levyCost = FrequentFlyerLevyService.addLevyToFlightCost(trip.cost, index)
+        return accumulator + levyCost
+      }
+      return state.trips.reduce(reducer, 0)
     }
   },
   mutations: {

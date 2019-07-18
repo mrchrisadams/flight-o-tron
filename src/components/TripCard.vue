@@ -20,6 +20,7 @@
 
 
 <script>
+import FrequentFlyerLevyService from "@/services/FrequentFlyerLevyService.js"
 export default {
   props: {
     trip: Object,
@@ -32,14 +33,7 @@ export default {
   },
   methods: {
     addLevyToFlightCost(cost, pos) {
-      const fflMultipliers = [0, 0, 0.09, 0.24, 0.46, 0.74, 1.09, 1.49, 1.93, 2.4];
-
-      if (pos > 9) {
-        pos = 9;
-      }
-      let multiplier = fflMultipliers[pos];
-      const levy = cost * multiplier;
-      return levy;
+      return FrequentFlyerLevyService.addLevyToFlightCost(cost, pos)
     },
     deleteTrip() {
       this.$store.dispatch("deleteTrip", this.trip);

@@ -1,5 +1,5 @@
 const debug = require("debug")("fot:front:frequenFlyerLevyService")
-const fflMultipliers = [0, 0.09, 0.24, 0.46, 0.74, 1.09, 1.49, 1.93, 2.4]
+const fflMultipliers = [0, 0, 0.09, 0.24, 0.46, 0.74, 1.09, 1.49, 1.93, 2.4]
 
 export default {
   addLevyToFlightCost(cost, pos) {
@@ -7,7 +7,6 @@ export default {
     if (pos > 9) {
       post = 9
     }
-    const levy = cost * fflMultipliers[pos]
-    return cost + levy
+    return cost * fflMultipliers[pos]
   }
 }
