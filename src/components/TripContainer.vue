@@ -118,7 +118,7 @@ export default {
         to: "",
         distance: 0,
         carbon: 0,
-        cost: 0
+        cost: null
       };
     },
     createTrip() {
