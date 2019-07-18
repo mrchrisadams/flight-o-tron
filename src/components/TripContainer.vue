@@ -99,7 +99,8 @@ export default {
     };
   },
   components: {
-    TripCard, TripImporter
+    TripCard,
+    TripImporter
   },
   computed: {
     showFFL() {
@@ -119,6 +120,10 @@ export default {
     spent() {
       let spent = this.$store.getters.totalSpent;
       return spent.toLocaleString();
+    },
+    FFLLevy() {
+      let ffl = this.$store.getters.totalFFLLevy;
+      return ffl.toLocaleString();
     }
   },
   methods: {
@@ -149,7 +154,7 @@ export default {
     },
     exportTrips() {
       this.$store.dispatch("exportTrips");
-      return this.$store.getters.serialisedTrips
+      return this.$store.getters.serialisedTrips;
     }
   }
 };
